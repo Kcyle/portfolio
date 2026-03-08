@@ -1,0 +1,62 @@
+<section class="about" data-animate="about">
+  <div class="about__inner">
+    <div class="about__label-row">
+      <div class="about__line" data-animate="about-line"></div>
+      <span class="about__label" data-animate="about-label">About</span>
+    </div>
+    <p class="about__text" data-animate="about-text">
+      I'm a developer at the University of Maryland passionate about building
+      immersive experiences at the intersection of XR, web technologies, and
+      design engineering. Currently leading projects with the XR Club and
+      crafting digital experiences for student organizations.
+    </p>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 10rem var(--page-padding);
+    display: flex;
+    justify-content: center;
+  }
+
+  .about__inner {
+    max-width: 680px;
+    width: 100%;
+  }
+
+  .about__label-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .about__line {
+    width: 40px;
+    height: 1px;
+    background: var(--color-text-muted);
+  }
+
+  .about__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .about__text {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      padding: 6rem var(--page-padding);
+    }
+  }
+</style>

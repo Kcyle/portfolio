@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Kyle Goh's Portfolio">
+  <section class="landing" id="landing">
+    <div class="landing__grid"></div>
+    <div class="landing__content">
+      <p class="landing__hello">Hello, Northwestern admission officer (or anyone this pertains to),</p>
+      <h1 class="landing__name">Kyle Goh</h1>
+      <p class="landing__text">This is a quick demo showcasing five of my best works. I recommend mainly paying attention to the <strong>first two websites</strong> I've created, as they represent the majority of the work and provide the most insight into the two organizations I have been a part of at UMD.</p>
+      <p class="landing__cta">Go 'Cats!</p>
+      <button class="landing__btn" id="enter-btn">View My Work &darr;</button>
+    </div>
+  </section>
+
+  <main class="page">
+    <h1 class="name">Kyle Goh's Portfolio</h1>
+
+    <div class="work">
+      <div class="card" data-project>
+        <div class="card__browser">
+          <div class="card__dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="card__url">xr.umd.edu</span>
+        </div>
+        <img src="/images/xr.umd.edu.PNG" alt="XR Club" />
+        <div class="card__info">
+          <h2 class="card__title">XR Club</h2>
+          <p class="card__desc">A full stack web application for the XR Club at the University of Maryland featuring a fully integrated AI chatbot and a backend system for managing applications and verifying users through Terpmail or .umd.edu email accounts. I also managed the process of obtaining and setting up the official UMD domain for the site.</p>
+          <div class="card__tags">
+            <span>Astro</span><span>GSAP</span><span>Supabase</span>
+          </div>
+          <a href="https://xr.umd.edu/" target="_blank" rel="noopener" class="card__btn">Visit Site &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card" data-project>
+        <div class="card__browser">
+          <div class="card__dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="card__url">tas.umd.edu</span>
+        </div>
+        <img src="/images/TAS.umd.edu.PNG" alt="Terrapin Anime Society" />
+        <div class="card__info">
+          <h2 class="card__title">Terrapin Anime Society</h2>
+          <p class="card__desc">Features a masterful use of artwork to create a scroll based animated experience for users. The site incorporates unique visuals and design elements while also including a backend system to manage meetings and activities for the Terrapin Anime Society.</p>
+          <div class="card__tags">
+            <span>Astro</span><span>GSAP</span>
+          </div>
+          <a href="https://tas.umd.edu/" target="_blank" rel="noopener" class="card__btn">Visit Site &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card" data-project>
+        <div class="video-wrap">
+          <iframe
+            data-src="https://www.youtube.com/embed/ewcoaFnz-mk?autoplay=1&mute=1"
+            src="about:blank"
+            title="VIRNECT XR Experience"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="card__info">
+          <h2 class="card__title">Nyctophobia Simulator</h2>
+          <p class="card__desc">Nyctophobia (an extreme or irrational fear of the dark). This experience aims to simulate that fear through an immersive XR environment. It was created using XR Club's corporate sponsor, VIRNECT, an XR and AI company that provided exclusive software for development.</p>
+          <div class="card__tags">
+            <span>VIRNECT</span><span>XR</span><span>AI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-project>
+        <div class="slideshow" data-slideshow>
+          <img src="/images/Scene1.PNG" alt="Scene 1" class="slideshow__img active" />
+          <img src="/images/scene2.PNG" alt="Scene 2" class="slideshow__img" />
+          <img src="/images/scene3.PNG" alt="Scene 3" class="slideshow__img" />
+          <img src="/images/scene4.PNG" alt="Scene 4" class="slideshow__img" />
+          <img src="/images/scene5.PNG" alt="Scene 5" class="slideshow__img" />
+          <img src="/images/scene6.PNG" alt="Scene 6" class="slideshow__img" />
+          <img src="/images/scene7.PNG" alt="Scene 7" class="slideshow__img" />
+          <img src="/images/scene8.PNG" alt="Scene 8" class="slideshow__img" />
+          <img src="/images/scene9.PNG" alt="Scene 9" class="slideshow__img" />
+          <img src="/images/scene10.PNG" alt="Scene 10" class="slideshow__img" />
+          <img src="/images/scene11.PNG" alt="Scene 11" class="slideshow__img" />
+        </div>
+        <div class="card__info">
+          <h2 class="card__title">Testudo Horror</h2>
+          <p class="card__desc">Testudo is the University of Maryland's mascot. This experience takes the user on a journey where they are guided by an NPC to defeat the boss, Testudo chan. The user quickly notices something feels off, and after fighting through multiple bosses realizes things were not what they seemed. It's a plot twist driven RPG style experience.</p>
+          <div class="card__tags">
+            <span>Unity</span><span>C#</span><span>Game Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-project>
+        <div class="video-wrap">
+          <iframe
+            data-src="https://www.youtube.com/embed/gnKMSc9yxlk?autoplay=1&mute=1"
+            src="about:blank"
+            title="VR Anime Animator Experience"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="card__info">
+          <h2 class="card__title">The Hardship of Japanese Animators</h2>
+          <p class="card__desc">An immersive VR experience exploring the working conditions and dedication of Japanese animators through interactive storytelling.</p>
+          <div class="card__tags">
+            <span>Unity</span><span>C#</span><span>VR</span><span>Meta Quest</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Typewriter effect
+  function typewrite(el: Element, text: string, speed: number = 40): Promise<void> {
+    return new Promise(resolve => {
+      el.textContent = '';
+      let i = 0;
+      const timer = setInterval(() => {
+        el.textContent += text[i];
+        i++;
+        if (i >= text.length) {
+          clearInterval(timer);
+          resolve();
+        }
+      }, speed);
+    });
+  }
+
+  async function runIntro() {
+    const hello = document.querySelector('.landing__hello')!;
+    const name = document.querySelector('.landing__name')!;
+    const text = document.querySelector('.landing__text')!;
+    const cta = document.querySelector('.landing__cta')!;
+    const btn = document.querySelector('.landing__btn')!;
+
+    const savedText = text.innerHTML;
+    text.textContent = '';
+
+    await typewrite(hello, 'Hello, Northwestern admission officer (or anyone this pertains to),', 30);
+
+    gsap.to(name, { opacity: 1, duration: 0.6 });
+    await new Promise(r => setTimeout(r, 700));
+
+    // Type out the plain text version
+    await typewrite(text, 'This is a quick demo showcasing five of my best works. I recommend mainly paying attention to the first two websites I\'ve created, as they represent the majority of the work and provide the most insight into the two organizations I have been a part of at UMD.', 20);
+    // Restore the HTML with bold
+    text.innerHTML = savedText;
+
+    await new Promise(r => setTimeout(r, 300));
+    gsap.to(cta, { opacity: 1, duration: 0.5 });
+    await typewrite(cta, 'Go \'Cats!', 80);
+
+    gsap.to(btn, { opacity: 1, duration: 0.5 });
+  }
+
+  runIntro();
+
+  // Enter button
+  document.getElementById('enter-btn')?.addEventListener('click', () => {
+    document.querySelector('.page')?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  gsap.from('.name', {
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power3.out',
+  });
+
+  document.querySelectorAll('[data-project]').forEach(card => {
+    gsap.from(card, {
+      y: 60,
+      opacity: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  });
+
+  // Lazy-load iframes when scrolled into view
+  const iframeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const iframe = entry.target.querySelector('iframe[data-src]');
+      if (!iframe) return;
+      if (entry.isIntersecting) {
+        if (iframe.src === 'about:blank') {
+          iframe.src = iframe.dataset.src!;
+        }
+      } else {
+        iframe.src = 'about:blank';
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.video-wrap').forEach(el => iframeObserver.observe(el));
+
+  // Slideshow auto-cycle only when visible
+  document.querySelectorAll('[data-slideshow]').forEach(el => {
+    const imgs = el.querySelectorAll('.slideshow__img');
+    let current = 0;
+    let interval: ReturnType<typeof setInterval> | null = null;
+
+    const slideshowObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !interval) {
+          interval = setInterval(() => {
+            imgs[current].classList.remove('active');
+            current = (current + 1) % imgs.length;
+            imgs[current].classList.add('active');
+          }, 3000);
+        } else if (!entry.isIntersecting && interval) {
+          clearInterval(interval);
+          interval = null;
+        }
+      });
+    }, { threshold: 0.3 });
+
+    slideshowObserver.observe(el);
+  });
+</script>

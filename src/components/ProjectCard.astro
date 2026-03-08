@@ -1,0 +1,137 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  index: number;
+}
+
+const { title, description, tags, link, index } = Astro.props;
+---
+
+<a href={link} class="project" target="_blank" rel="noopener" data-animate="project" data-index={index}>
+  <div class="project__image-wrap">
+    <iframe
+      class="project__iframe"
+      src={link}
+      loading="lazy"
+      tabindex="-1"
+      title={`${title} preview`}
+    ></iframe>
+  </div>
+  <div class="project__content">
+    <div class="project__header">
+      <h3 class="project__title">{title}</h3>
+      <svg class="project__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M7 17L17 7M17 7H7M17 7V17" />
+      </svg>
+    </div>
+    <p class="project__desc">{description}</p>
+    <div class="project__tags">
+      {tags.map(tag => <span class="project__tag">{tag}</span>)}
+    </div>
+  </div>
+</a>
+
+<style>
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color var(--transition-base), transform var(--transition-base);
+    background: var(--color-bg);
+  }
+
+  .project:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-4px);
+  }
+
+  .project:hover .project__arrow {
+    transform: translate(3px, -3px);
+  }
+
+  .project__image-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-bg-elevated);
+  }
+
+  .project__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
+    height: 900px;
+    border: none;
+    transform-origin: top left;
+    pointer-events: none;
+  }
+
+  .project__content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .project__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .project__title {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+  }
+
+  .project__arrow {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    transition: transform var(--transition-fast);
+  }
+
+  .project__desc {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .project__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project__tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    padding: 0.25rem 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .project {
+      grid-template-columns: 1fr;
+    }
+
+    .project__content {
+      padding: 1.5rem;
+    }
+  }
+</style>

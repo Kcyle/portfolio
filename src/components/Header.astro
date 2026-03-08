@@ -1,0 +1,57 @@
+<header class="header" data-animate="header">
+  <a href="/" class="header__logo">Kyle Goh</a>
+  <nav class="header__nav">
+    <a href="#about" class="header__link">About</a>
+    <a href="#work" class="header__link">Work</a>
+    <a href="#contact" class="header__link">Contact</a>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem var(--page-padding);
+    mix-blend-mode: difference;
+  }
+
+  .header__logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+  }
+
+  .header__nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .header__link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .header__link:hover {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 480px) {
+    .header__nav {
+      gap: 1.25rem;
+    }
+
+    .header__link {
+      font-size: 0.75rem;
+    }
+  }
+</style>

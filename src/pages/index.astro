@@ -350,12 +350,12 @@
             nested.src = nested.dataset.src!;
           }
 
-          // Pause videos in hidden panels
+          // Stop and unload YouTube videos in hidden panels
           allPanels.forEach(p => {
             if (p !== target) {
-              const vid = p.querySelector('iframe') as HTMLIFrameElement | null;
-              if (vid && vid.src !== 'about:blank' && vid.src.includes('youtube')) {
-                vid.src = vid.src; // reset to stop playback
+              const vid = p.querySelector('iframe[data-src]') as HTMLIFrameElement | null;
+              if (vid && vid.src !== 'about:blank') {
+                vid.src = 'about:blank';
               }
             }
           });

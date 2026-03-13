@@ -6,16 +6,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kyle Goh Portfolio</title>
+    <link rel="icon" type="image/webp" href="/images/chiikawa.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Campton:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Campton:wght@400;600;700&family=Inter:wght@400;500;600&family=Patrick+Hand&display=swap" rel="stylesheet" />
     <style>
       :root {
         --nu-purple: #4E2A84;
         --nu-purple-light: #836EAA;
         --nu-purple-dark: #371F5E;
         --nu-white: #FFFFFF;
-        --bar-height: 54px;
+        --bar-height: 68px;
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,14 +44,14 @@
 
       .topbar__name {
         color: var(--nu-white);
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 600;
         letter-spacing: 0.02em;
       }
 
       .topbar__label {
         color: var(--nu-purple-light);
-        font-size: 11px;
+        font-size: 13px;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.08em;
@@ -72,7 +73,7 @@
         align-items: center;
         padding: 0 16px;
         color: rgba(255,255,255,0.7);
-        font-size: 13px;
+        font-size: 17px;
         font-weight: 500;
         cursor: pointer;
         border: none;
@@ -97,7 +98,7 @@
 
       .topbar__nw {
         color: rgba(255,255,255,0.45);
-        font-size: 11px;
+        font-size: 16px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
         white-space: nowrap;
@@ -209,6 +210,45 @@
         .render__build-sub, .render__community-sub { font-size: 12px; }
       }
 
+      .mascot-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        margin-left: 4px;
+      }
+      .mascot-hint {
+        font-family: 'Patrick Hand', cursive;
+        font-size: 11px;
+        color: rgba(255,255,255,0.7);
+        letter-spacing: 0.03em;
+        margin-top: -2px;
+        pointer-events: none;
+      }
+      .topbar__mascot {
+        height: 42px;
+        width: 42px;
+        object-fit: contain;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: transform 0.15s ease;
+        flex-shrink: 0;
+      }
+      .topbar__mascot:hover {
+        transform: scale(1.15);
+      }
+      .topbar__mascot.dancing {
+        animation: usagi-dance 0.4s ease infinite;
+      }
+      @keyframes usagi-dance {
+        0%   { transform: translateY(0) rotate(0deg); }
+        20%  { transform: translateY(-6px) rotate(-8deg); }
+        40%  { transform: translateY(0) rotate(6deg); }
+        60%  { transform: translateY(-4px) rotate(-5deg); }
+        80%  { transform: translateY(0) rotate(4deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+      }
+
       @media (max-width: 700px) {
         .topbar__nw { display: none; }
         .topbar__label { display: none; }
@@ -222,6 +262,10 @@
         <div>
           <div class="topbar__name">Kyle Goh</div>
           <div class="topbar__label">Portfolio</div>
+        </div>
+        <div class="mascot-wrapper" id="mascot-wrapper">
+          <img id="chiikawa-mascot" class="topbar__mascot" src="/images/chiikawa.webp" alt="Chiikawa" />
+          <span class="mascot-hint">don't click me</span>
         </div>
       </div>
 
@@ -467,6 +511,27 @@
           }
         });
       });
+      // Chiikawa / Usagi mascot
+      (() => {
+        const mascot = document.getElementById('chiikawa-mascot') as HTMLImageElement;
+        let animating = false;
+
+        function reset() {
+          mascot.src = '/images/chiikawa.webp';
+          mascot.classList.remove('dancing');
+          animating = false;
+        }
+
+        mascot.addEventListener('click', () => {
+          if (animating) return;
+          animating = true;
+          mascot.src = '/images/usagi.webp';
+          mascot.classList.add('dancing');
+          const uwawa = new Audio('/uwawa.mp3');
+          uwawa.play().catch(() => {});
+          uwawa.addEventListener('ended', reset);
+        });
+      })();
     </script>
   </body>
 </html>

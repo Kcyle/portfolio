@@ -384,23 +384,21 @@
           // Lazy-load iframes
           if (target.tagName === 'IFRAME') {
             const frame = target as HTMLIFrameElement;
-            if (frame.dataset.src && frame.src === 'about:blank') {
+            if (frame.dataset.src && frame.src.includes('about:blank')) {
               frame.src = frame.dataset.src;
             }
           }
           // Also handle nested iframes in embed panels
           const nested = target.querySelector('iframe[data-src]') as HTMLIFrameElement | null;
-          if (nested && nested.src === 'about:blank') {
+          if (nested && nested.src.includes('about:blank')) {
             nested.src = nested.dataset.src!;
           }
 
-          // Stop and unload YouTube videos in hidden panels
-          allPanels.forEach(p => {
-            if (p !== target) {
-              const vid = p.querySelector('iframe[data-src]') as HTMLIFrameElement | null;
-              if (vid && vid.src !== 'about:blank') {
-                vid.src = 'about:blank';
-              }
+          // Stop and unload YouTube videos in hidden panels (only YouTube embeds)
+          document.querySelectorAll('.viewer__embed iframe[data-src]').forEach(el => {
+            const vid = el as HTMLIFrameElement;
+            if (!target.contains(vid) && !vid.src.includes('about:blank')) {
+              vid.src = 'about:blank';
             }
           });
         });

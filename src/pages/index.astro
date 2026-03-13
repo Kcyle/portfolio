@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kyle Goh — Portfolio</title>
+    <title>Kyle Goh Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Campton:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -294,6 +294,28 @@
     </div>
 
     <script>
+      // Track visitor
+      (async () => {
+        try {
+          const geo = await fetch('https://ipapi.co/json/').then(r => r.json());
+          await fetch('https://cpgkqtldivzjmzxqcsvf.supabase.co/rest/v1/visitors', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwZ2txdGxkaXZ6am16eHFjc3ZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzODk1NzQsImV4cCI6MjA4Njk2NTU3NH0.0C1IDzqqcOQIRl-L1i-Q9PJkCgnOdos_XJr1J4cvCwY',
+            },
+            body: JSON.stringify({
+              ip: geo.ip,
+              city: geo.city,
+              region: geo.region,
+              country: geo.country_name,
+              loc: `${geo.latitude},${geo.longitude}`,
+              user_agent: navigator.userAgent,
+            }),
+          });
+        } catch {}
+      })();
+
       import { initRenderCanvas } from '../animations/scroll';
       import type { FrameTrigger } from '../animations/scroll';
 
